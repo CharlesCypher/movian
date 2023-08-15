@@ -2,11 +2,13 @@ import { AnimatePresence } from "framer-motion";
 import { MagnifyingGlass, X } from "phosphor-react";
 import { motion } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 const SearchForm = ({ isOpen, setIsOpen }) => {
   const inputRef = useRef(null);
-  const handleSearch = () => {
-    if (inputRef.current == "") return;
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (inputRef.current === "") return;
     else console.log("Success");
   };
   return (
@@ -17,7 +19,7 @@ const SearchForm = ({ isOpen, setIsOpen }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 200 }}
           transition={{ ease: "easeInOut", duration: 0.2 }}
-          className="fixed w-full h-1/2 bg-darkBlue left-0 right-0 bottom-0 rounded-tl-2xl rounded-tr-2xl z-10"
+          className="fixed w-full h-1/2 bg-darkBlue left-0 right-0 bottom-0 rounded-tl-2xl rounded-tr-2xl shadow-lg z-10"
         >
           <div className="relative px-8 py-5">
             <div className="flex justify-end">
@@ -41,6 +43,12 @@ const SearchForm = ({ isOpen, setIsOpen }) => {
                 </button>
               </div>
             </form>
+          </div>
+          <div className="flex items-center justify-center gap-1 text-white">
+            <span>Made by</span>
+            <span>
+              <Link to={""}>Corizon ❤️</Link>
+            </span>
           </div>
         </motion.div>
       )}

@@ -5,7 +5,7 @@ import Card from "../card/Card";
 
 const Row = ({ title, getMovies }) => {
   const [movies, setMovies] = useState([]);
-  const movieQuery = useQuery({
+  const moviesQuery = useQuery({
     queryKey: ["movie"],
     queryFn: async () => {
       const response = await axios.get(getMovies);
@@ -14,10 +14,10 @@ const Row = ({ title, getMovies }) => {
     },
   });
   useEffect(() => {
-    setMovies(movieQuery?.data?.results);
-  }, [movieQuery.data]);
-  if (movieQuery.isLoading) return <h1>Loading....</h1>;
-  if (movieQuery.isError) return <h1>Error loading data!!!</h1>;
+    setMovies(moviesQuery?.data?.results);
+  }, [moviesQuery.data]);
+  if (moviesQuery.isLoading) return <h1>Loading....</h1>;
+  if (moviesQuery.isError) return <h1>Error loading data!!!</h1>;
   return (
     <section className="py-8">
       <div className="px-6 -mb-4">

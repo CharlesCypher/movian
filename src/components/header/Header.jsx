@@ -8,12 +8,21 @@ const Header = ({ isOpen, setIsOpen }) => {
           <Link className="text-xl font-medium text-blue">Movian</Link>
         </div>
         <div className="flex items-center gap-4">
-          <button onClick={() => setIsOpen(!isOpen)}>
-            <MagnifyingGlass className="text-2xl" />
-          </button>
-          <button>
-            <List className="text-2xl" />
-          </button>
+          <div className="flex">
+            <button onClick={() => setIsOpen(!isOpen)}>
+              <MagnifyingGlass className="text-2xl" />
+            </button>
+          </div>
+          <div className="relative">
+            <button>
+              <List className="text-2xl" />
+            </button>
+            <div className="absolute w-1/3 h-auto">
+              <div className="relative w-full h-full">
+                <Link to={"/wishlists"}>Wishlist</Link>
+              </div>
+            </div>
+          </div>
         </div>
       </nav>
     </header>

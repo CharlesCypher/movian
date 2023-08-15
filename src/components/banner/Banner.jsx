@@ -2,10 +2,14 @@ import axios from "../../constants/axios";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import requests, { BASE_URL } from "../../constants/requests";
-import { Info, Play, Plus } from "phosphor-react";
 import truncate from "../../constants/truncate";
+import { Info, Play, Plus } from "phosphor-react";
+import { addToList } from "../../features/list/listSlice";
+import { useDispatch } from "react-redux";
+import { Toaster, toast } from "sonner";
 
 const Banner = () => {
+  const dispatch = useDispatch();
   const [movie, setMovie] = useState([]);
   const movieQuery = useQuery({
     queryKey: ["movie"],
@@ -22,7 +26,8 @@ const Banner = () => {
   if (movieQuery.isError) return <h1>Error loading data!!!</h1>;
 
   return (
-    <main className="min-h-[90vh] mb-6">
+    <main className="min-h-[85vh] mb-4">
+      <Toaster position="bottom-center" />
       <div className="h-16"></div>
       <div
         key={movie?.id}
@@ -35,7 +40,19 @@ const Banner = () => {
             <button className="hover:bg-white hover:text-black border border-white rounded-full p-3 transition-all">
               <Play className="text-xl" weight="bold" />
             </button>
-            <button className="hover:bg-white hover:text-black border border-white rounded-full p-3 transition-all">
+            <button
+              className="hover:bg-white hover:text-black border border-white rounded-full p-3 transition-all"
+              onClick={() => {
+                dispatch(
+                  addToList({
+                    id: movie?.id,
+                    title: movie?.title || movie?.name || movie?.original_name,
+                    poster: `${BASE_URL + movie?.poster_path}`,
+                  })
+                );
+                toast("Movie added to wishlist");
+              }}
+            >
               <Plus className="text-xl" weight="bold" />
             </button>
             <button className="hover:bg-white hover:text-black border border-white rounded-full p-3 transition-all">
