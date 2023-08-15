@@ -7,6 +7,7 @@ export default {
         primary: "#1A1D29",
         white: "#F9F9F9",
         blue: "#67BDFF",
+        darkBlue: "#101116",
       },
       backgroundImage: {
         grad_overlay: "linear-gradient(0deg, rgba(26,29,41,1) 25%, rgba(255,255,255,0) 100%)",

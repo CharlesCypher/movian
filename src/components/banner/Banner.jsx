@@ -22,7 +22,7 @@ const Banner = () => {
   if (movieQuery.isError) return <h1>Error loading data!!!</h1>;
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-[90vh] mb-6">
       <div className="h-16"></div>
       <div
         key={movie?.id}

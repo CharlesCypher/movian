@@ -13,7 +13,6 @@ const Row = ({ title, getMovies }) => {
       return data;
     },
   });
-  console.log(movieQuery);
   useEffect(() => {
     setMovies(movieQuery?.data?.results);
   }, [movieQuery.data]);
