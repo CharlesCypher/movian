@@ -16,6 +16,7 @@ const Row = ({ title, getMovies }) => {
   useEffect(() => {
     setMovies(moviesQuery?.data?.results);
   }, [moviesQuery.data]);
+  console.log(movies);
   if (moviesQuery.isLoading) return <h1>Loading....</h1>;
   if (moviesQuery.isError) return <h1>Error loading data!!!</h1>;
   return (

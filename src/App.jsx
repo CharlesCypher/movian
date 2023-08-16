@@ -25,7 +25,7 @@ function App() {
           errorElement: <ErrorPage />,
         },
         {
-          path: "wishlists",
+          path: "watchlists",
           element: <Wishlists />,
           errorElement: <ErrorPage />,
         },

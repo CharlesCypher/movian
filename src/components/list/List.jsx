@@ -20,8 +20,8 @@ const List = () => {
         <div className="grid grid-cols-2 items-start gap-6">
           {lists
             ?.map((movie) => (
-              <div className="" key={movie.id}>
-                <div className="">
+              <div key={movie.id || "001"}>
+                <div>
                   <figure>
                     <img src={movie.poster} alt={movie.title} className="object-cover rounded-sm" />
                   </figure>

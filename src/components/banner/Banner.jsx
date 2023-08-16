@@ -68,7 +68,7 @@ const Banner = () => {
             <h1 className="text-xl font-medium">{movie?.title || movie?.name || movie?.original_name}</h1>
           </div>
           <div className="mb-2">
-            <p className="text-sm text-gray-300">{truncate(movie?.overview, 120)}</p>
+            <p className="text-sm text-gray-300">{truncate(movie?.overview, 140)}</p>
             {/* <div className="absolute bg-primary w-full h-10 left-0 -mt-4 opacity-70"></div> */}
           </div>
         </div>

@@ -8,7 +8,7 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState([]);
   const movieQuery = useQuery({
-    queryKey: ["mo"],
+    queryKey: ["details"],
     queryFn: async () => {
       const response = await axios.get(`movie/${movieId}?api_key=${import.meta.env.VITE_REACT_APP_TMDB_API_KEY}&language=en-US`);
       const data = await response.data;

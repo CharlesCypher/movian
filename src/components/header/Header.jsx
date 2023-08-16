@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { List, MagnifyingGlass } from "phosphor-react";
+import { List, MagnifyingGlass, Popcorn, SignOut, UserCircle } from "phosphor-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 const Header = ({ isOpen, setIsOpen }) => {
@@ -29,18 +29,31 @@ const Header = ({ isOpen, setIsOpen }) => {
                   className="bg-darkBlue absolute w-auto h-auto left-0 top-16 -translate-x-24 rounded-md"
                 >
                   <div className="relative w-full h-full px-6 py-4 box">
-                    <div className="h-full flex flex-col items-center">
-                      <div className="mb-4">
-                        <Link to={"/wishlists"}>Wishlist</Link>
+                    <div className="h-full flex flex-col items-start">
+                      <div className="flex items-center gap-2 mb-4">
+                        <div>
+                          <Popcorn className="text-xl" />
+                        </div>
+                        <div>
+                          <Link to={"/watchlists"}>Watchlist</Link>
+                        </div>
                       </div>
                       <div className="flex items-center gap-2 mb-4">
-                        <div className="">
-                          <img src="" alt="user" />
+                        <div>
+                          {/* <img src="" alt="user" /> */}
+                          <UserCircle className="text-xl" />
                         </div>
-                        <Link to={"/wishlists"}>Profile</Link>
+                        <div>
+                          <Link to={"/watchlists"}>Profile</Link>
+                        </div>
                       </div>
-                      <div className="mb-2">
-                        <Link to={"/wishlists"}>Log out</Link>
+                      <div className="flex items-center gap-1 mb-2">
+                        <div>
+                          <SignOut className="text-xl" />
+                        </div>
+                        <div>
+                          <Link to={"/watchlists"}>Log out</Link>
+                        </div>
                       </div>
                     </div>
                   </div>
