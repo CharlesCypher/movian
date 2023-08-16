@@ -20,13 +20,13 @@ const Banner = () => {
     },
   });
   useEffect(() => {
-    setMovie(movieQuery?.data?.results[Math.floor(Math.random() * movieQuery?.data?.results.length - 1) || movieQuery?.data?.results[0]]);
+    setMovie(movieQuery?.data?.results[Math.floor(Math.random() * movieQuery?.data?.results?.length - 1) || movieQuery?.data?.results[0]]);
   }, [movieQuery.data]);
   if (movieQuery.isLoading) return <h1>Loading....</h1>;
   if (movieQuery.isError) return <h1>Error loading data!!!</h1>;
 
   return (
-    <main className="min-h-[85vh] mb-4">
+    <main className="min-h-[87vh] mb-4">
       <Toaster position="bottom-center" />
       <div className="h-16"></div>
       <div

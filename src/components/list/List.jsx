@@ -1,6 +1,6 @@
 import { ArrowLeft } from "phosphor-react";
 import { useSelector } from "react-redux";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const List = () => {
   const lists = useSelector((state) => state.list.movies);
